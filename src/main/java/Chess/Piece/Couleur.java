@@ -3,7 +3,7 @@ package Chess.Piece;
 public class Couleur {
 
     public String BLACK;
-    public String White;
+    public String WHITE;
 
     private String Couleur;
 
