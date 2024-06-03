@@ -4,5 +4,5 @@ module src.main.java {
             
                             
     opens src.main.java to javafx.fxml;
-    exports src.main.java;
+    exports com.example.demo;
 }
