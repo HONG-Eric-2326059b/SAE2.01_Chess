@@ -22,28 +22,31 @@ public class Dame {
             if (addField(PosX + 1, PosY + 1, fields))
                 break;
         for (int i = 1; PosX + i < 8 && PosY - i >= 0; i++)
-            if (PosX + 1, PosY - 1)
+            if (addField(PosX + 1, PosY - 1, fields))
                 break;
         for (int i = 1; PosX - i >= 0 && PosY - i >= 0; i++)
-            if (PosX + 1, PosY + 1)
+            if (addField(PosX + 1, PosY + 1, fields))
                 break;
         for (int i = 1; PosX - i >= 0 && PosY + i < 8; i++)
-            if (PosX - 1, PosY + 1)
+            if (addField(PosX - 1, PosY + 1, fields))
                 break;
         for (int i = 1; PosX + i < 8; i++)
-            if (PosX - 1)
+            if (addField(PosX - 1, fields))
                 break;
         for (int i = 1; PosX - i >= 0; i++)
-            if (PosX - 1)
+            if (addField(PosX - 1, fields))
                 break;
         for (int i = 1; PosY + i < 8; i++)
-            if (PosY + 1)
+            if (addField(PosY + 1, fields))
                 break;
         for (int i = 1; PosY - i >= 0; i++)
-            if (PosY - 1)
+            if (addField(PosY - 1, fields))
                 break;
         return fields;
     }
 
+    private boolean addField(int x, int y, List<String> fields){
+
+    }
 
 }
