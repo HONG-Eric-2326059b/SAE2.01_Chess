@@ -1,4 +1,4 @@
-package src.main.java.Chess.Piece;
+package Chess.Piece;
 
 public class Roi {
 }

@@ -1,4 +1,4 @@
-package src.main.java.Chess.Piece;
+package Chess.Piece;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,13 +8,4 @@ import Main.Piece.Couleur;
 
 public class Pion {
 
-    public Pion(Couleur,MovePiece,){
-
-    }
-
-    public List<MovePiece> Condition(){
-        if(Couleur == white){
-
-        };
-    }
 }

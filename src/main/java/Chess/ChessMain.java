@@ -1,4 +1,4 @@
-package src.main.java.Chess;
+package Chess;
 
 
 public class ChessMain {
