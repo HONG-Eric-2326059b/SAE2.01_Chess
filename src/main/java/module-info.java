@@ -1,7 +1,7 @@
-module src.main.java {
+module Chess {
     requires javafx.controls;
     requires javafx.fxml;
-            
-                            
-    opens src.main.java.ressource.Chess.fxml to javafx.fxml;
+
+    opens Chess to javafx.fxml;
+    exports Chess;
 }

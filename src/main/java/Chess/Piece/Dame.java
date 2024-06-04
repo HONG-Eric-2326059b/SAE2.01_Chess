@@ -1,10 +1,10 @@
-package Piece;
+package Chess.Piece;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Dame {
-
+/*
     int PosX;
     int PosY;
     String Couleur;
@@ -49,4 +49,6 @@ public class Dame {
 
     }
 
+
+ */
 }

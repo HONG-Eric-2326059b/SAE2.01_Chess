@@ -6,7 +6,7 @@ import Chess.Piece.Couleur;
 
 
 public class Pion {
-
+/*
     int PosX;
     int PosY;
 
@@ -38,4 +38,6 @@ public class Pion {
         }
 
     }
+
+ */
 }
