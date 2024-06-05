@@ -3,9 +3,14 @@ package Chess;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -28,7 +33,6 @@ public class ChessMain extends Application {
             stage.show();
             AffichePlateau();
     }
-
     private void AffichePlateau() {
         Plateau.getChildren().clear();
         //Piece Blanche
