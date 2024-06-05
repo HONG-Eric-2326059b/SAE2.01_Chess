@@ -1,0 +1,26 @@
+.buttonJ {
+    -fx-background-color:  #a3d160;
+    -fx-border-color: rgba(93,153,72,.2);
+}
+.buttonJ:hover{
+    -fx-background-color: #b2e068;
+}
+
+.fond {
+    -fx-background-color: #424242;
+}
+.fonddroite{
+    -fx-background-color: rgba(0,0,0,.77);
+}
+.buttonT{
+    -fx-background-color:  #312e2b;
+}
+.buttonT:hover{
+    -fx-background-color: #262421;
+}
+.topbutton {
+    -fx-background-color: #424242;
+}
+.topbutton:hover{
+    -fx-background-color: #8b8987;
+}
