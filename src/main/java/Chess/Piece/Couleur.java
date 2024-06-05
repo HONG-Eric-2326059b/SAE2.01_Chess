@@ -7,13 +7,13 @@ public class Couleur {
     public String BLACK;
     public String WHITE;
 
-    private String Couleur;
+    private String name;
 
      Couleur() {
-        this.Couleur = Couleur;
+        this.name = name;
         }
-    public String getCouleur() {
-        return Couleur;
+    public String getName() {
+        return name;
         }
 
 

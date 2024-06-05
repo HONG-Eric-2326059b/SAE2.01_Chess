@@ -9,8 +9,7 @@ public class Dame {
     int PosY;
     String Couleur;
 
-    int x = PosX;
-    int y= PosY;
+
 
     public Dame (Couleur, PosX, PosY){
         super(Couleur,PosX,PosY);
@@ -20,7 +19,10 @@ public class Dame {
     public List<String> getFields() {
         List<String> fields = new ArrayList<>();
 
+        int x = PosX;
+        int y= PosY;
 
+        "deplacement diagonaux"
         for (int i = 1; PosX + i < 8 && PosY + i < 8; i++)
             if (addField(PosX + 1, PosY + 1, fields))
                 break;
@@ -33,6 +35,8 @@ public class Dame {
         for (int i = 1; PosX - i >= 0 && PosY + i < 8; i++)
             if (addField(PosX - 1, PosY + 1, fields))
                 break;
+
+        "deplacement verticaux et horizontaux"
         for (int i = 1; PosX + i < 8; i++)
             if (addField(PosX - 1, PosY, fields))
                 break;
