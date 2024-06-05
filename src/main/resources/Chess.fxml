@@ -13,10 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="998.0" stylesheets="styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1002.0" stylesheets="styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <VBox prefHeight="677.0" prefWidth="490.0" styleClass="fond" stylesheets="@styles.css">
             <children>
+            <HBox prefHeight="75.0" prefWidth="600.0" />
                 <StackPane>
                     <children>
                         <ImageView fitHeight="600.0" fitWidth="600.0" preserveRatio="true">
@@ -48,35 +49,35 @@
                         </GridPane>
                     </children>
                 </StackPane>
-            <HBox prefHeight="78.0" prefWidth="0.0">
-               <children>
-                  <HBox prefHeight="78.0" prefWidth="309.0" />
-                  <HBox prefHeight="78.0" prefWidth="302.0" />
-               </children>
-            </HBox>
+                <HBox prefHeight="78.0" prefWidth="0.0">
+                    <children>
+                        <HBox prefHeight="78.0" prefWidth="309.0" />
+                        <HBox prefHeight="78.0" prefWidth="302.0" />
+                    </children>
+                </HBox>
             </children>
         </VBox>
         <VBox prefHeight="677.0" prefWidth="404.0" styleClass="fonddroite" stylesheets="@styles.css">
-         <children>
-            <HBox prefHeight="679.0" prefWidth="398.0" stylesheets="@styles.css">
-               <children>
-                  <VBox prefHeight="678.0" prefWidth="24.0" styleClass="fond" stylesheets="@styles.css" />
-                  <VBox prefHeight="678.0" prefWidth="24.0" />
-                  <HBox prefHeight="678.0" prefWidth="347.0">
-                     <children>
-                        <VBox prefHeight="678.0" prefWidth="325.0">
-                           <children>
-                              <HBox prefHeight="23.0" prefWidth="326.0" />
-                              <HBox prefHeight="99.0" prefWidth="326.0">
+            <children>
+                <HBox prefHeight="714.0" prefWidth="402.0" stylesheets="@styles.css">
+                    <children>
+                        <VBox prefHeight="698.0" prefWidth="25.0" styleClass="fond" stylesheets="@styles.css" />
+                        <VBox prefHeight="678.0" prefWidth="24.0" />
+                        <HBox prefHeight="700.0" prefWidth="349.0">
+                            <children>
+                                <VBox prefHeight="728.0" prefWidth="326.0">
+                                    <children>
+                                        <HBox prefHeight="23.0" prefWidth="326.0" />
+                                        <HBox prefHeight="92.0" prefWidth="327.0">
+                                            <children>
+                                                <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="116.0" styleClass="topbutton" text="Nouvelle Partie" textFill="WHITE" />
+                                                <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="105.0" styleClass="topbutton" text="Parties" textFill="#fcfcfc" />
+                                                <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="127.0" styleClass="topbutton" text="Joueurs" textFill="WHITE" />
+                                            </children>
+                                        </HBox>
+                              <HBox prefHeight="140.0" prefWidth="327.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="116.0" styleClass="topbutton" text="Nouvelle Partie" textFill="WHITE" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="105.0" styleClass="topbutton" text="Parties" textFill="#fcfcfc" />
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="127.0" styleClass="topbutton" text="Joueurs" textFill="WHITE" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="127.0" prefWidth="326.0">
-                                 <children>
-                                    <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="53.0" prefWidth="327.0" styleClass="MenuButton" text="Mode" textFill="WHITE">
+                                    <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="59.0" prefWidth="341.0" styleClass="topbutton" text="MODE" textFill="WHITE">
                                       <items>
                                         <MenuItem mnemonicParsing="false" text="Action 1" />
                                         <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -87,27 +88,31 @@
                                     </MenuButton>
                                  </children>
                               </HBox>
-                              <HBox prefHeight="121.0" prefWidth="326.0">
+                              <HBox prefHeight="130.0" prefWidth="327.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="327.0" styleClass="buttonJ" stylesheets="@styles.css" text="JOUER" textFill="WHITE">
-                                       <font>
-                                          <Font name="System Bold" size="22.0" />
-                                       </font>
-                                    </Button>
+                                                <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="327.0" styleClass="buttonJ" stylesheets="@styles.css" text="JOUER" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="System Bold" size="22.0" />
+                                                    </font>
+                                                </Button>
                                  </children>
                               </HBox>
-                              <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="327.0" styleClass="buttonT" stylesheets="@styles.css" text="TOURNOI" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="22.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children>
-            </HBox>
-         </children>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                                <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="327.0" styleClass="buttonT" stylesheets="@styles.css" text="TOURNOI" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="System Bold" size="22.0" />
+                                                    </font>
+                                                </Button>
+                                 </children>
+                              </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+            </children>
         </VBox>
     </children>
 </HBox>
