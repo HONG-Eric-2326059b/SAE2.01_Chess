@@ -24,3 +24,9 @@
 .topbutton:hover{
     -fx-background-color: #8b8987;
 }
+.MenuButton{
+    -fx-background-color: #4b4847;
+}
+.MenuButton:hover{
+    -fx-background-color: #666564;
+}
