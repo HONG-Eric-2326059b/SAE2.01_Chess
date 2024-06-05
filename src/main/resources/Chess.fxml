@@ -25,7 +25,7 @@
                                 <Image url="@image/150.png" />
                             </image>
                         </ImageView>
-                        <GridPane fx:id="Plateau" prefHeight="0.0" prefWidth="600.0">
+                        <GridPane fx:id="Plateau" onDragDetected="#DragDetected" onDragDropped="#DragDrop" onDragOver="#DragOver" prefHeight="0.0" prefWidth="600.0">
                             <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="75.0" />
                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="74.90174202978446" minWidth="10.0" prefWidth="72.90436654150321" />

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fou {
-
+/*
     int PosX;
     int PosY;
     String Couleur;
@@ -46,4 +46,5 @@ public class Fou {
         }
         return true;
     }
+ */
 }

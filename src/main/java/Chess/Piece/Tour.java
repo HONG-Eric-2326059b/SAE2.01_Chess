@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Tour {
 
+    /*
     int PosX;
     int PosY;
     String Couleur;
@@ -46,4 +47,6 @@ public class Tour {
         }
         return true;
     }
+
+     */
 }
