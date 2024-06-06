@@ -16,6 +16,7 @@ public class PartiesController implements Initializable {
     private Button ButtonP;
 
     @Override
+    //initialize la scene Parties
     public void initialize(URL url, ResourceBundle resourceBundle) {
         PageController Pagecontroller = new PageController();
         Pagecontroller.topButton(ButtonN,ButtonJ,ButtonP);

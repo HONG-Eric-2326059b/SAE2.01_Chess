@@ -26,7 +26,7 @@ public class Pion {
             if (MoveValide(x, y - 1)) move.add((x) + "," + (y - 1));
             if (MoveValide(x + 1, y - 1)) move.add((x + 1) + "," + (y - 1));
             if (posY == 6) {
-                if (MoveValide(x, y - 2)) move.add((x) + "," + (y - 2));
+                 if (MoveValide(x, y - 2)) move.add((x)+ "," + (y - 2));
             }
         } else if (couleur.estNoir()) {
             if (MoveValide(x - 1, y + 1)) move.add((x - 1) + "," + (y + 1));

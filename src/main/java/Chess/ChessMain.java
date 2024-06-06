@@ -26,7 +26,7 @@ public class ChessMain extends Application {
         stage.show();
     }
 
-
+//Test affichage des piece
 private void AffichePlateau() {
         Plateau.getChildren().clear();
         //Piece Blanche
@@ -56,7 +56,7 @@ private void AffichePlateau() {
             TypePiece(c + "7", "bp.png");
         }
     }
-
+    //Charger les images des piece et la place dans des cases/coordonnees
     private void TypePiece(String position, String imagePiece) {
         Image Piece = new Image(getClass().getResourceAsStream("/image/" + imagePiece));
         ImageView imageView = new ImageView(Piece);

@@ -15,6 +15,8 @@ import java.util.ResourceBundle;
 
 public class NouvellePController implements Initializable {
     @FXML
+    private Button ButtonJouer;
+    @FXML
     private Button ButtonJ;
     @FXML
     private Button ButtonN;
@@ -22,8 +24,11 @@ public class NouvellePController implements Initializable {
     private Button ButtonP;
 
     @Override
+    //initialize la page Principale
     public void initialize(URL url, ResourceBundle resourceBundle) {
         PageController Pagecontroller = new PageController();
         Pagecontroller.topButton(ButtonN,ButtonJ,ButtonP);
+        Pagecontroller.TestButton(ButtonJouer);
+
     }
 }

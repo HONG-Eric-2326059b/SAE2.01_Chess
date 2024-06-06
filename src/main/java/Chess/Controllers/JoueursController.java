@@ -14,8 +14,11 @@ public class JoueursController implements Initializable {
     private Button ButtonN;
     @FXML
     private Button ButtonP;
+    @FXML
+    private Button ButtonJouer;
 
     @Override
+    //initialize la page Joueurs
     public void initialize(URL url, ResourceBundle resourceBundle) {
         PageController Pagecontroller = new PageController();
         Pagecontroller.topButton(ButtonN,ButtonJ,ButtonP);
