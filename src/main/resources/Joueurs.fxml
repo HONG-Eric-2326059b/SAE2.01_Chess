@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1002.0" stylesheets="styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" >
+<HBox fx:id="hbox" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chess.Controllers.JoueursController">
     <children>
         <VBox prefHeight="677.0" prefWidth="490.0" styleClass="fond" stylesheets="@styles.css">
             <children>
@@ -19,6 +19,12 @@
                         <Label alignment="CENTER" prefHeight="66.0" prefWidth="122.0" text="JOUEUR" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <HBox prefHeight="60.0" prefWidth="334.0" />
+                        <Label alignment="CENTER" prefHeight="60.0" prefWidth="97.0" text="00:00" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="22.0" />
                             </font>
                         </Label>
                     </children></HBox>
@@ -53,9 +59,32 @@
                         </GridPane>
                     </children>
                 </StackPane>
+                <HBox prefHeight="78.0" prefWidth="0.0">
+                    <children>
+                        <HBox prefHeight="59.0" prefWidth="603.0">
+                            <children>
+                                <ImageView fitHeight="59.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@image/ProfilBlanc.png" />
+                                    </image>
+                                </ImageView>
+                                <Label alignment="CENTER" prefHeight="66.0" prefWidth="122.0" text="JOUEUR" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <HBox prefHeight="62.0" prefWidth="319.0" />
+                                <Label alignment="CENTER" prefHeight="61.0" prefWidth="98.0" text="00:00" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="22.0" />
+                                    </font>
+                                </Label>
+                            </children></HBox>
+                    </children>
+                </HBox>
             </children>
         </VBox>
-        <VBox prefHeight="677.0" prefWidth="404.0" styleClass="fonddroite" stylesheets="@styles.css">
+        <VBox prefHeight="708.0" prefWidth="408.0" styleClass="fonddroite" stylesheets="@styles.css">
             <children>
                 <HBox prefHeight="714.0" prefWidth="402.0" stylesheets="@styles.css">
                     <children>
@@ -68,12 +97,10 @@
                                         <HBox prefHeight="23.0" prefWidth="326.0" />
                                         <HBox prefHeight="92.0" prefWidth="327.0">
                                             <children>
-                                                <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="116.0" styleClass="topbutton" text="Nouvelle Partie" textFill="WHITE" />
-                                                <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="105.0" styleClass="topbutton" text="Parties" textFill="#fcfcfc" />
-                                                <Button fx:id="JB" mnemonicParsing="false" prefHeight="32.0" prefWidth="127.0" styleClass="topbutton" text="Joueurs" textFill="WHITE" />
+                                                <Button fx:id="ButtonN" prefHeight="32.0" prefWidth="116.0" styleClass="topbutton" text="Nouvelle Partie" textFill="WHITE" />
+                                                <Button fx:id="ButtonP" mnemonicParsing="false" prefHeight="32.0" prefWidth="105.0" styleClass="topbutton" text="Parties" textFill="#fcfcfc" />
+                                                <Button fx:id="ButtonJ" mnemonicParsing="false" prefHeight="32.0" prefWidth="127.0" styleClass="topbutton" text="Joueurs" textFill="WHITE" />
                                             </children>
-                                        </HBox>
-                                        <HBox prefHeight="140.0" prefWidth="327.0">
                                         </HBox>
                                         <HBox prefHeight="130.0" prefWidth="327.0" />
                                     </children>

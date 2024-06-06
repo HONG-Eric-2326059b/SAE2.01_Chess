@@ -3,37 +3,31 @@ package Chess;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TransferMode;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class ChessMain extends Application {
-
     @FXML
     private GridPane Plateau;
+    private final int tailleCase = 75;
 
-    private static final int tailleCase = 75;
-
+    private static Scene scene;
     @Override
-    public void start(Stage stage) throws IOException {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Chess.fxml"));
-            loader.setController(this);
-            Scene scene = new Scene(loader.load());
-            stage.setTitle("Chess");
-            stage.setScene(scene);
-            stage.show();
-            AffichePlateau();
+    public void start(Stage stage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("Chess.fxml"));
+        scene = new Scene(loader.load());
+        stage.setTitle("Chess");
+        stage.setScene(scene);
+        stage.show();
     }
-    private void AffichePlateau() {
+
+
+private void AffichePlateau() {
         Plateau.getChildren().clear();
         //Piece Blanche
         TypePiece("a1", "wr.png");

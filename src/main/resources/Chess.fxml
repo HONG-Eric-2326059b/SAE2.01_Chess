@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1002.0" stylesheets="styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+<HBox fx:id="hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1002.0" stylesheets="styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chess.Controllers.NouvellePController">
     <children>
         <VBox prefHeight="677.0" prefWidth="490.0" styleClass="fond" stylesheets="@styles.css">
             <children>
@@ -106,9 +106,9 @@
                                         <HBox prefHeight="23.0" prefWidth="326.0" />
                                         <HBox prefHeight="92.0" prefWidth="327.0">
                                             <children>
-                                                <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="116.0" styleClass="topbutton" text="Nouvelle Partie" textFill="WHITE" />
-                                                <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="105.0" styleClass="topbutton" text="Parties" textFill="#fcfcfc" />
-                                                <Button fx:id="JB" mnemonicParsing="false" prefHeight="32.0" prefWidth="127.0" styleClass="topbutton" text="Joueurs" textFill="WHITE" />
+                                                <Button fx:id="ButtonN" prefHeight="32.0" prefWidth="116.0" styleClass="topbutton" text="Nouvelle Partie" textFill="WHITE" />
+                                                <Button fx:id="ButtonP" mnemonicParsing="false" prefHeight="32.0" prefWidth="105.0" styleClass="topbutton" text="Parties" textFill="#fcfcfc" />
+                                                <Button fx:id="ButtonJ" mnemonicParsing="false" prefHeight="32.0" prefWidth="127.0" styleClass="topbutton" text="Joueurs" textFill="WHITE" />
                                             </children>
                                         </HBox>
                               <HBox prefHeight="140.0" prefWidth="327.0">

@@ -1,17 +1,15 @@
-package Chess;
+package Chess.Controllers;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+
 public class PageController {
 
-    private Stage stage;
-
-    public void TopButton( Button ButtonN, Button ButtonJ) {
+    public void topButton(Button ButtonN, Button ButtonJ, Button ButtonP) {
 
         ButtonN.setOnMouseClicked(actionEvent -> {
             changeScene("Chess.fxml", ButtonN);
@@ -19,15 +17,15 @@ public class PageController {
         ButtonJ.setOnMouseClicked(actionEvent -> {
             changeScene("Joueurs.fxml", ButtonJ);
         });
+        ButtonP.setOnMouseClicked(actionEvent -> {
+            changeScene("Parties.fxml", ButtonP);
+        });
     }
-
     public void changeScene(String sceneName, Button button) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Chess.fxml"));
-            Parent root = loader.load(); // Ensure you are not setting the controller here
-
-            stage.setTitle("Chess Game");
-            stage.setScene(new Scene(root));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(sceneName));
+            Stage stage = (Stage) button.getScene().getWindow();
+            stage.setScene(new Scene(loader.load()));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
