@@ -4,47 +4,61 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fou {
-/*
-    int PosX;
-    int PosY;
-    String Couleur;
 
+    private int posX;
+    private int posY;
+    private Couleur couleur;
+    private List<String> move;
 
-    public Fou (Couleur, PosX, PosY){
-        super(Couleur,PosX,PosY);
-        ArrayList<String> move = new ArrayList<>();
+    public Fou (Couleur couleur, int PosX, int PosY){
+        this.couleur = couleur;
+        this.posX = posX;
+        this.posY = posY;
+        this.move = new ArrayList<>();
     }
 
-    public List<String> getFields() {
-        List<String> fields = new ArrayList<>();
+    public void moveCondition() {
+        int x = posX;
+        int y = posY;
+        move.clear();
 
-        int x = PosX;
-        int y = PosY;
-
-        "deplacement diagonaux"
-        for (int i = 1; PosX + i < 8 && PosY + i < 8; i++)
-            if (addField(PosX + 1, PosY + 1, fields))
-                break;
-        for (int i = 1; PosX + i < 8 && PosY - i >= 0; i++)
-            if (addField(PosX + 1, PosY - 1, fields))
-                break;
-        for (int i = 1; PosX - i >= 0 && PosY - i >= 0; i++)
-            if (addField(PosX + 1, PosY + 1, fields))
-                break;
-        for (int i = 1; PosX - i >= 0 && PosY + i < 8; i++)
-            if (addField(PosX - 1, PosY + 1, fields))
-                break;
-        return fields;
-    }
-
-    private boolean addField(int x, int y, List<String> fields) {
-        if (fields == null) {
-            fields.add(field);
-            return false;
-        } else if (fields.getFields.Couleur != Couleur) {
-            fields.add(field);
+        if (couleur.estBlanc()) {
+            /*mouvement diagonaux*/
+            if (MoveValide(x - 1, y - 1)) move.add((x - 1) + "," + (y - 1));
+            if (MoveValide(x + 1, y + 1)) move.add((x + 1) + "," + (y + 1));
+            if (MoveValide(x + 1, y - 1)) move.add((x + 1) + "," + (y - 1));
+            if (MoveValide(x - 1, y + 1)) move.add((x - 1) + "," + (y + 1));
         }
-        return true;
+        else if (couleur.estNoir()){
+            /*mouvement diagonaux*/
+            if (MoveValide(x - 1, y - 1)) move.add((x - 1) + "," + (y - 1));
+            if (MoveValide(x + 1, y + 1)) move.add((x + 1) + "," + (y + 1));
+            if (MoveValide(x + 1, y - 1)) move.add((x + 1) + "," + (y - 1));
+            if (MoveValide(x - 1, y + 1)) move.add((x - 1) + "," + (y + 1));
+        }
     }
- */
+
+    private boolean MoveValide(int x, int y) {
+        return x >= 0 && x < 8 && y >= 0 && y < 8;
+    }
+
+    public int getPosX() {
+        return posX;
+    }
+
+    public void setPosX(int posX) {
+        this.posX = posX;
+    }
+
+    public int getPosY() {
+        return posY;
+    }
+
+    public void setPosY(int posY) {
+        this.posY = posY;
+    }
+
+    public Couleur getCouleur() {
+        return couleur;
+    }
 }

@@ -39,26 +39,32 @@ public class Pion {
     }
 
     private boolean MoveValide(int x, int y) {
+
         return x >= 0 && x < 8 && y >= 0 && y < 8;
     }
 
     public int getPosX() {
+
         return posX;
     }
 
     public void setPosX(int posX) {
+
         this.posX = posX;
     }
 
     public int getPosY() {
+
         return posY;
     }
 
     public void setPosY(int posY) {
+
         this.posY = posY;
     }
 
     public Couleur getCouleur() {
+
         return couleur;
     }
 }
