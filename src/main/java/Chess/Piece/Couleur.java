@@ -16,14 +16,17 @@ public class Couleur {
 
     //Revoie la couleur
     public String getCouleur() {
+
         return couleur;
     }
     //renvoie True si la couleur est Noir
     public boolean estNoir() {
+
         return BLACK.equals(couleur);
     }
     //revoie True si la couleur est blanc
     public boolean estBlanc() {
+
         return WHITE.equals(couleur);
     }
 }

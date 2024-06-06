@@ -1,5 +1,7 @@
 package Chess.Piece;
 
+import Chess.ChessMain;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ public class Dame {
     private int posY;
     private Couleur couleur;
     private List<String> move;
+    private int PosY;
 
     public Dame (Couleur couleur, int PosX, int PosY){
         this.couleur = couleur;
@@ -70,6 +73,34 @@ public class Dame {
 
     public Couleur getCouleur() {
         return couleur;
+    }
+
+    /* coups possibles*/
+    private ArrayList<Coordonee> CasesDispo(){
+        int posX = this.posX;
+        int posY = this.posY;
+
+        ArrayList<Coordonee> possible = new ArrayList<Coordonee>();
+        while (posX<8 && posX>=0 && posY>=0&& PosY<8 && getCouleur() != this.getCouleur()){
+            possible.add(new Coordonee(posX, posY));
+            posX++;
+        }
+
+        while (posX<8 && posX>=0 && posY>=0&& PosY<8 && getCouleur() != this.getCouleur()){
+            possible.add(new Coordonee(posX, posY));
+            posX--;
+        }
+
+        while (posX<8 && posX>=0 && posY>=0&& PosY<8 && getCouleur() != this.getCouleur()){
+            possible.add(new Coordonee(posX, posY));
+            posY++;
+        }
+
+        while (posX<8 && posX>=0 && posY>=0&& PosY<8 && getCouleur() != this.getCouleur()){
+            possible.add(new Coordonee(posX, posY));
+            posY--;
+        }
+        return possible;
     }
 }
 
