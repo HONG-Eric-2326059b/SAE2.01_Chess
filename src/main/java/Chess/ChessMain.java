@@ -17,7 +17,7 @@ import java.io.IOException;
 public class ChessMain extends Application {
     @FXML
     private GridPane Plateau;
-    private final int tailleCase = 75;
+    public static final int tailleCase = 75;
 
     private static Scene scene;
     @Override
