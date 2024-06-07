@@ -1,5 +1,6 @@
 package Chess.Controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -22,6 +24,7 @@ public class NouvellePController implements Initializable {
     private Button ButtonN;
     @FXML
     private Button ButtonP;
+
 
     @Override
     //initialize la page Principale

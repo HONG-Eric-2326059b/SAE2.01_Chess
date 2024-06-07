@@ -30,11 +30,22 @@ public class PageController {
             changeScene("Victoire.fxml", ButtonJouer);
         });
     }
+    //reviens sur la page principale
+    public static void replayB(Button Replay){
+        Replay.setOnAction(actionEvent -> {
+            changeScene("Chess.fxml", Replay);
+        });
+    }
+    public static void Save(Button SaveP){
+        SaveP.setOnAction(actionEvent -> {
+            changeScene("sauvegardeFenetre.fxml", SaveP);
+        });
+    }
 
     //Permet de changer de scene en charger des fxml
-    public void changeScene(String sceneName, Button button) {
+    public static void changeScene(String sceneName, Button button) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(sceneName));
+            FXMLLoader loader = new FXMLLoader(PageController.class.getClassLoader().getResource(sceneName));
             Stage stage = (Stage) button.getScene().getWindow();
             stage.setScene(new Scene(loader.load()));
             stage.show();

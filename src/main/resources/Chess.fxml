@@ -115,8 +115,9 @@
                                  <children>
                                     <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="59.0" prefWidth="341.0" styleClass="topbutton" text="MODE" textFill="WHITE">
                                       <items>
-                                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                                        <MenuItem mnemonicParsing="false" text="10min"  />
+                                        <MenuItem mnemonicParsing="false" text="3min" />
+                                          <MenuItem mnemonicParsing="false" text="bot" />
                                       </items>
                                        <font>
                                           <Font name="System Bold" size="22.0" />

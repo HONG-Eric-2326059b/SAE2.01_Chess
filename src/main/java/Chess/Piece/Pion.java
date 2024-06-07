@@ -38,6 +38,16 @@ public class Pion {
         }
     }
 
+    public void upgrade(){
+        int y = posY;
+        if(posY == 0 && couleur.estBlanc()){
+
+        }
+        if (posY == 7 && couleur.estNoir()){
+
+        }
+    }
+
     private boolean MoveValide(int x, int y) {
 
         return x >= 0 && x < 8 && y >= 0 && y < 8;
