@@ -1,6 +1,6 @@
 package Chess.Controllers;
 
-import javafx.fxml.FXML;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -24,7 +24,6 @@ public class PageController {
             changeScene("Parties.fxml", ButtonP);
         });
     }
-    // Test de la fenetre Win
     public void JouerButton(Button ButtonJouer){
         ButtonJouer.setOnAction(actionEvent -> {
             changeScene("InGame.fxml", ButtonJouer);

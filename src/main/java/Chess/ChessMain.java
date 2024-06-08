@@ -1,18 +1,11 @@
 package Chess;
 
-import Chess.Piece.Tour;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import Chess.Player;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class ChessMain extends Application {
     @FXML

@@ -2,13 +2,24 @@ package Chess.Controllers;
 
 import Chess.ChessMain;
 import Chess.Piece.*;
+import Chess.Timer;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Shape;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class GameController implements Initializable {
@@ -20,10 +31,113 @@ public class GameController implements Initializable {
     private Button ButtonP;
     @FXML
     private GridPane Plateau;
+    @FXML
+    private Label TimerBlack;
+
+    @FXML
+    private Label TimerBlanc;
+
+    private Timer player1Timer;
+    private Timer player2Timer;
+    private boolean CoupJouer = true;
+    private Map<Shape,String> posPossibles= new HashMap<>();
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         PageController Pagecontroller = new PageController();
         Pagecontroller.topButton(ButtonN,ButtonJ,ButtonP);
+        Piece();
+        Timer();
+        playerMove();
+    }
+    public void playerMove() {
+        if (CoupJouer) {
+            player1Timer.stop();
+            if (player1Timer.getSecondsRestante() == 0) {
+                VictoireDesNoirs();
+                System.out.println("Victoire des Blanc");
+                return;
+            }
+            startPlayerTimer(player2Timer, TimerBlanc);
+        } else {
+            player2Timer.stop();
+            if (player2Timer.getSecondsRestante() == 0) {
+                VictoireDesBlancs();
+                System.out.println("Victoire des Noirs");
+                return;
+            }
+            startPlayerTimer(player1Timer, TimerBlack);
+        }
+        CoupJouer = !CoupJouer;
+    }
+
+    private boolean VictoireDesBlancs() {
+        return true;
+    }
+    private boolean VictoireDesNoirs() {
+        return false;
+    }
+
+    private void Timer(){
+        player1Timer = new Timer(1);
+        player2Timer = new Timer(1);
+        player1Timer.start();
+
+        new Thread(() -> {
+            while (player1Timer.Lancement()) {
+                updateTimer(TimerBlack, player1Timer);
+            }
+        }).start();
+
+        // Démarrer la minuterie du joueur 2
+        new Thread(() -> {
+            try {
+                Thread.sleep(100); // Délai avant de démarrer la minuterie du joueur 2
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            player2Timer.start();
+            while (player2Timer.Lancement()) {
+                updateTimer(TimerBlanc, player2Timer);
+            }
+        }).start();
+    }
+
+    private void startPlayerTimer(Timer timer, Label timerLabel) {
+        new Thread(() -> {
+            while (timer.Lancement()) {
+                updateTimer(timerLabel, timer);
+            }
+        }).start();
+    }
+
+    private void updateTimer(Label label, Timer timer) {
+        int secondsLeft = timer.getSecondsRestante();
+        int minutes = secondsLeft / 60;
+        int seconds = secondsLeft % 60;
+        String time = String.format("%02d:%02d", minutes, seconds);
+
+        javafx.application.Platform.runLater(() -> {
+            label.setText(time);
+        });
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    private ImageView placePiece(String position, String imagePiece) {
+        Image Piece = new Image(getClass().getResourceAsStream("/image/" + imagePiece));
+        ImageView imageView = new ImageView(Piece);
+        imageView.setFitHeight(ChessMain.tailleCase);
+        imageView.setFitWidth(ChessMain.tailleCase);
+
+        int colonne = position.charAt(0) - 'a';
+        int ligne = 8 - Character.getNumericValue(position.charAt(1));
+        Plateau.add(imageView, colonne, ligne);
+        return imageView;
+    }
+    private void Piece() {
         // charge les pièces et les déplacements
         // Piece Blancs
         Cavalier wn1 = new Cavalier(new Couleur("WHITE"),1,0, placePiece("b1", "wn.png"));
@@ -158,17 +272,5 @@ public class GameController implements Initializable {
         bp8.getImage().setOnMouseClicked(event -> {
             bp8.deplacePion(Plateau);
         });
-
-    }
-    private ImageView placePiece(String position, String imagePiece) {
-        Image Piece = new Image(getClass().getResourceAsStream("/image/" + imagePiece));
-        ImageView imageView = new ImageView(Piece);
-        imageView.setFitHeight(ChessMain.tailleCase);
-        imageView.setFitWidth(ChessMain.tailleCase);
-
-        int colonne = position.charAt(0) - 'a';
-        int ligne = 8 - Character.getNumericValue(position.charAt(1));
-        Plateau.add(imageView, colonne, ligne);
-        return imageView;
     }
 }

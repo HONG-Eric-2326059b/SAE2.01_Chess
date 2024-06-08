@@ -1,28 +1,43 @@
 package Chess;
 
 public class Timer {
+    private int secondsRestante;
+    private boolean lancement;
+    private Thread Time;
 
-    private String minute;
-    private String sec;
-    //Timer de 10 min
-    public void Rapide10() throws InterruptedException {
-        int i = 600;
-        while (i != 0){
-            i = i -1;
-            Thread.sleep(1000);
-        }
-        System.out.println("Loose");
-    }
-    //Timer de 3 min
-    public void blitz3() throws InterruptedException {
-        int i = 360;
-        while (i != 0){
-            i = i - 1;
-            Thread.sleep(1000);
-        }
-        System.out.println("Loose");
+    public Timer(int seconds) {
+        this.secondsRestante = seconds;
+        this.lancement = false;
     }
 
+    public void start() {
+        if (!lancement) {
+            lancement = true;
+            Time = new Thread(() -> {
+                try {
+                    while (secondsRestante > 0) {
+                        Thread.sleep(1000);
+                        secondsRestante--;
+                    }
+                } catch (InterruptedException e) {
+                }
+            });
+            Time.start();
+        }
+    }
 
+    public void stop() {
+        if (lancement && Time != null) {
+            lancement = false;
+            Time.interrupt();
+        }
+    }
 
+    public int getSecondsRestante() {
+        return secondsRestante;
+    }
+
+    public boolean Lancement() {
+        return lancement;
+    }
 }
