@@ -21,10 +21,10 @@ public class Cavalier {
     private Couleur couleur;
     private List<String> move;
     private ImageView image;
-    private Map<Shape,String> posPossibles = new HashMap<>();
+    private Map<Shape, String> posPossibles = new HashMap<>();
 
 
-    public Cavalier (Couleur couleur, int posX, int posY, ImageView image){
+    public Cavalier(Couleur couleur, int posX, int posY, ImageView image) {
         this.couleur = couleur;
         this.posX = posX;
         this.posY = posY;
@@ -36,8 +36,6 @@ public class Cavalier {
         int x = posX;
         int y = posY;
         move.clear();
-
-        if (couleur.estBlanc()) {
             if (MoveValide(x + 2, y + 1)) move.add((x + 2) + "," + (y + 1));
             if (MoveValide(x + 2, y - 1)) move.add((x + 2) + "," + (y - 1));
             if (MoveValide(x + 1, y + 2)) move.add((x + 1) + "," + (y + 2));
@@ -46,17 +44,6 @@ public class Cavalier {
             if (MoveValide(x - 2, y - 1)) move.add((x - 2) + "," + (y - 1));
             if (MoveValide(x - 1, y - 2)) move.add((x - 1) + "," + (y - 2));
             if (MoveValide(x + 1, y - 2)) move.add((x + 1) + "," + (y - 2));
-        }
-        else if (couleur.estNoir()){
-            if (MoveValide(x + 2, y + 1)) move.add((x + 2) + "," + (y + 1));
-            if (MoveValide(x + 2, y - 1)) move.add((x + 2) + "," + (y - 1));
-            if (MoveValide(x + 1, y + 2)) move.add((x + 1) + "," + (y + 2));
-            if (MoveValide(x - 1, y + 2)) move.add((x - 1) + "," + (y + 2));
-            if (MoveValide(x - 2, y + 1)) move.add((x - 2) + "," + (y + 1));
-            if (MoveValide(x - 2, y - 1)) move.add((x - 2) + "," + (y - 1));
-            if (MoveValide(x - 1, y - 2)) move.add((x - 1) + "," + (y - 2));
-            if (MoveValide(x + 1, y - 2)) move.add((x + 1) + "," + (y - 2));
-        }
     }
 
     private boolean MoveValide(int x, int y) {
@@ -82,29 +69,33 @@ public class Cavalier {
     public Couleur getCouleur() {
         return couleur;
     }
-    public ImageView getImage() {return image; }
-    public void deplaceCavalier(GridPane plateau){
+
+    public ImageView getImage() {
+        return image;
+    }
+
+    public void deplaceCavalier(GridPane plateau) {
         //Supprime les carrés bleu du GridPane
-        plateau.getChildren().remove(plateau.getChildren().size()- posPossibles.size(), plateau.getChildren().size());
+        plateau.getChildren().remove(plateau.getChildren().size() - posPossibles.size(), plateau.getChildren().size());
         posPossibles.clear();
         moveCondition();
-        for (String pos : move){
-            Shape r = new Rectangle(75, 75, new Color(0, 0, 1, 0.4));
+        for (String pos : move) {
+            Shape r = new Rectangle(75, 75, new Color(0.99, 1, 0, 0.45));
             // ajoute les rectangles dans le GridPane
-            plateau.add(r, Character.getNumericValue(pos.charAt(0)), 7-Character.getNumericValue(pos.charAt(2)));
+            plateau.add(r, Character.getNumericValue(pos.charAt(0)), 7 - Character.getNumericValue(pos.charAt(2)));
             // associe une position à chaque rectangle
-            posPossibles.put(r,Plateau.colonneToPos(Character.getNumericValue(pos.charAt(0)))+Character.getNumericValue(pos.charAt(2)+1));
+            posPossibles.put(r, Plateau.colonneToPos(Character.getNumericValue(pos.charAt(0))) + Character.getNumericValue(pos.charAt(2) + 1));
         }
-        for (Shape n : posPossibles.keySet()){
+        for (Shape n : posPossibles.keySet()) {
             // Si on appuie sur un rectangle
             n.setOnMouseClicked(actionEvent -> {
-                plateau.getChildren().remove(plateau.getChildren().size()- posPossibles.size(), plateau.getChildren().size());
+                plateau.getChildren().remove(plateau.getChildren().size() - posPossibles.size(), plateau.getChildren().size());
                 System.out.println(posPossibles.get(n));
                 //Met à jour la position du cavalier
-                posY = Character.getNumericValue(posPossibles.get(n).charAt(1))-1;
+                posY = Character.getNumericValue(posPossibles.get(n).charAt(1)) - 1;
                 posX = posPossibles.get(n).charAt(0) - 'a';
                 // Déplace la pièce dans le GridPane
-                NouvellePController.deplacePiece(posPossibles.get(n),this.image,plateau);
+                NouvellePController.deplacePiece(posPossibles.get(n), this.image, plateau);
                 posPossibles.clear();
             });
         }

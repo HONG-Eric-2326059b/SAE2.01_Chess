@@ -1,7 +1,16 @@
 package Chess.Piece;
 
+import Chess.Controllers.NouvellePController;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Fou {
 
@@ -9,11 +18,14 @@ public class Fou {
     private int posY;
     private Couleur couleur;
     private List<String> move;
+    private ImageView image;
+    private Map<Shape, String> posPossibles = new HashMap<>();
 
-    public Fou (Couleur couleur, int PosX, int PosY){
+    public Fou(Couleur couleur, int PosX, int PosY, ImageView image) {
         this.couleur = couleur;
-        this.posX = posX;
-        this.posY = posY;
+        this.posX = PosX;
+        this.posY = PosY;
+        this.image = image;
         this.move = new ArrayList<>();
     }
 
@@ -21,22 +33,27 @@ public class Fou {
         int x = posX;
         int y = posY;
         move.clear();
-
-        if (couleur.estBlanc()) {
-            /*mouvement diagonaux*/
-            if (MoveValide(x - 1, y - 1)) move.add((x - 1) + "," + (y - 1));
-            if (MoveValide(x + 1, y + 1)) move.add((x + 1) + "," + (y + 1));
-            if (MoveValide(x + 1, y - 1)) move.add((x + 1) + "," + (y - 1));
-            if (MoveValide(x - 1, y + 1)) move.add((x - 1) + "," + (y + 1));
+        // Déplacements en haut à gauche
+        for (int i = 1; MoveValide(x - i, y - i); i++) {
+            move.add((x - i) + "," + (y - i));
         }
-        else if (couleur.estNoir()){
-            /*mouvement diagonaux*/
-            if (MoveValide(x - 1, y - 1)) move.add((x - 1) + "," + (y - 1));
-            if (MoveValide(x + 1, y + 1)) move.add((x + 1) + "," + (y + 1));
-            if (MoveValide(x + 1, y - 1)) move.add((x + 1) + "," + (y - 1));
-            if (MoveValide(x - 1, y + 1)) move.add((x - 1) + "," + (y + 1));
+
+        // Déplacements en haut à droite
+        for (int i = 1; MoveValide(x + i, y - i); i++) {
+            move.add((x + i) + "," + (y - i));
+        }
+
+        // Déplacements en bas à gauche
+        for (int i = 1; MoveValide(x - i, y + i); i++) {
+            move.add((x - i) + "," + (y + i));
+        }
+
+        // Déplacements en bas à droite
+        for (int i = 1; MoveValide(x + i, y + i); i++) {
+            move.add((x + i) + "," + (y + i));
         }
     }
+
 
     private boolean MoveValide(int x, int y) {
         return x >= 0 && x < 8 && y >= 0 && y < 8;
@@ -60,5 +77,36 @@ public class Fou {
 
     public Couleur getCouleur() {
         return couleur;
+    }
+
+    public ImageView getImage() {
+        return image;
+    }
+
+    public void deplaceFou(GridPane plateau) {
+        //Supprime les carrés jaune du GridPane
+        plateau.getChildren().remove(plateau.getChildren().size() - posPossibles.size(), plateau.getChildren().size());
+        posPossibles.clear();
+        moveCondition();
+        for (String pos : move) {
+            Shape r = new Rectangle(75, 75, new Color(0.99, 1, 0, 0.45));
+            // ajoute les rectangles dans le GridPane
+            plateau.add(r, Character.getNumericValue(pos.charAt(0)), 7 - Character.getNumericValue(pos.charAt(2)));
+            // associe une position à chaque rectangle
+            posPossibles.put(r, Plateau.colonneToPos(Character.getNumericValue(pos.charAt(0))) + Character.getNumericValue(pos.charAt(2) + 1));
+        }
+        for (Shape n : posPossibles.keySet()) {
+            // Si on appuie sur un rectangle
+            n.setOnMouseClicked(actionEvent -> {
+                plateau.getChildren().remove(plateau.getChildren().size() - posPossibles.size(), plateau.getChildren().size());
+                System.out.println(posPossibles.get(n));
+                //Met à jour la position de la tours
+                posY = Character.getNumericValue(posPossibles.get(n).charAt(1)) - 1;
+                posX = posPossibles.get(n).charAt(0) - 'a';
+                // Déplace la pièce dans le GridPane
+                NouvellePController.deplacePiece(posPossibles.get(n), this.image, plateau);
+                posPossibles.clear();
+            });
+        }
     }
 }

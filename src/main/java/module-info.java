@@ -2,6 +2,7 @@ module Chess {
     requires javafx.controls;
     requires javafx.fxml;
     requires com.opencsv;
+    requires java.desktop;
 
     opens Chess to javafx.fxml;
     exports Chess;
