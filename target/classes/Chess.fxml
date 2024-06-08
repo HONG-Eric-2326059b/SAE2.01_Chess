@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <HBox fx:id="hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1002.0" stylesheets="styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chess.Controllers.NouvellePController">
     <children>
@@ -44,28 +35,28 @@
                                 <Image url="@image/150.png" />
                             </image>
                         </ImageView>
-                        <GridPane fx:id="Plateau" prefHeight="0.0" prefWidth="600.0">
-                            <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="75.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="74.90174202978446" minWidth="10.0" prefWidth="72.90436654150321" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.89118294775321" minWidth="10.0" prefWidth="75.90037389804485" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="84.88861947119068" minWidth="10.0" prefWidth="72.9030306471004" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="88.88205647213516" minWidth="10.0" prefWidth="73.90303064710042" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="86.88595928261782" minWidth="10.0" prefWidth="75.8990921597636" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="92.87808918697891" minWidth="10.0" prefWidth="74.90175234833657" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.87941004163167" minWidth="10.0" prefWidth="81.89249348385397" />
-                            </columnConstraints>
-                            <rowConstraints>
-                                <RowConstraints minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="73.90302376806574" minHeight="10.0" prefHeight="73.90302376806574" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="88.88337044775324" minHeight="10.0" prefHeight="77.89777474462824" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                            </rowConstraints>
-                        </GridPane>
+                  <GridPane fx:id="Plateau">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="145.20000762939452" minHeight="10.0" prefHeight="75.2" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="118.20000762939452" minHeight="10.0" prefHeight="72.40000000000002" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="157.39999999999998" minHeight="10.0" prefHeight="75.6" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="158.80000000000004" minHeight="10.0" prefHeight="76.80000000000001" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="158.2" minHeight="10.0" prefHeight="72.80000000000001" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="172.79996948242183" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="122.39996948242185" minHeight="10.0" prefHeight="72.60000000000002" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="86.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
                     </children>
                 </StackPane>
                 <HBox prefHeight="78.0" prefWidth="0.0">
@@ -115,7 +106,7 @@
                                  <children>
                                     <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="59.0" prefWidth="341.0" styleClass="topbutton" text="MODE" textFill="WHITE">
                                       <items>
-                                        <MenuItem mnemonicParsing="false" text="10min"  />
+                                        <MenuItem mnemonicParsing="false" text="10min" />
                                         <MenuItem mnemonicParsing="false" text="3min" />
                                           <MenuItem mnemonicParsing="false" text="bot" />
                                       </items>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox fx:id="hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1002.0" stylesheets="styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chess.Controllers.GameController">
+<HBox fx:id="hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1002.0" stylesheets="styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chess.Controllers.GameController">
     <children>
         <VBox prefHeight="677.0" prefWidth="490.0" styleClass="fond" stylesheets="@styles.css">
             <children>
@@ -102,37 +103,10 @@
                                                 <Button fx:id="ButtonJ" mnemonicParsing="false" prefHeight="32.0" prefWidth="127.0" styleClass="topbutton" text="Joueurs" textFill="WHITE" />
                                             </children>
                                         </HBox>
-                                        <HBox prefHeight="140.0" prefWidth="327.0">
-                                            <children>
-                                                <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="59.0" prefWidth="341.0" styleClass="topbutton" text="MODE" textFill="WHITE">
-                                                    <items>
-                                                        <MenuItem mnemonicParsing="false" text="10min" />
-                                                        <MenuItem mnemonicParsing="false" text="3min" />
-                                                        <MenuItem mnemonicParsing="false" text="bot" />
-                                                    </items>
-                                                    <font>
-                                                        <Font name="System Bold" size="22.0" />
-                                                    </font>
-                                                </MenuButton>
-                                            </children>
-                                        </HBox>
-                                        <HBox prefHeight="130.0" prefWidth="327.0">
-                                            <children>
-                                                <Button fx:id="ButtonJouer" mnemonicParsing="false" prefHeight="70.0" prefWidth="327.0" styleClass="buttonJ" stylesheets="@styles.css" text="JOUER" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="System Bold" size="22.0" />
-                                                    </font>
-                                                </Button>
-                                            </children>
-                                        </HBox>
-                                        <HBox prefHeight="100.0" prefWidth="200.0">
-                                            <children>
-                                                <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="327.0" styleClass="buttonT" stylesheets="@styles.css" text="TOURNOI" textFill="WHITE">
-                                                    <font>
-                                                        <Font name="System Bold" size="22.0" />
-                                                    </font>
-                                                </Button>
-                                            </children>
+                                        <HBox prefHeight="533.0" prefWidth="326.0">
+                                 <children>
+                                    <ListView fx:id="LiistMove" prefHeight="533.0" prefWidth="327.0" styleClass="fond" />
+                                 </children>
                                         </HBox>
                                     </children>
                                 </VBox>

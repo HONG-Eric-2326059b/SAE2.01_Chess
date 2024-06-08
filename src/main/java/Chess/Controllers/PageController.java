@@ -25,9 +25,9 @@ public class PageController {
         });
     }
     // Test de la fenetre Win
-    public void TestButton(Button ButtonJouer){
+    public void JouerButton(Button ButtonJouer){
         ButtonJouer.setOnAction(actionEvent -> {
-            changeScene("Victoire.fxml", ButtonJouer);
+            changeScene("InGame.fxml", ButtonJouer);
         });
     }
     //reviens sur la page principale

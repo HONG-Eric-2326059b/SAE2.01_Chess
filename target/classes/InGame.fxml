@@ -1,13 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<HBox fx:id="hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1002.0" stylesheets="styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chess.Controllers.GameController">
+    <children>
+        <VBox prefHeight="677.0" prefWidth="490.0" styleClass="fond" stylesheets="@styles.css">
+            <children>
+                <HBox prefHeight="75.0" prefWidth="600.0">
+                    <children>
+                        <ImageView fitHeight="59.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@image/ProfilBlack.png" />
+                            </image>
+                        </ImageView>
+                        <Label alignment="CENTER" prefHeight="66.0" prefWidth="122.0" text="JOUEUR" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <HBox prefHeight="60.0" prefWidth="334.0" />
+                        <Label alignment="CENTER" prefHeight="60.0" prefWidth="97.0" text="00:00" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="22.0" />
+                            </font>
+                        </Label>
+                    </children></HBox>
+                <StackPane>
+                    <children>
+                        <ImageView fitHeight="600.0" fitWidth="600.0" preserveRatio="true">
+                            <image>
+                                <Image url="@image/150.png" />
+                            </image>
+                        </ImageView>
+                        <GridPane fx:id="Plateau">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="145.20000762939452" minHeight="10.0" prefHeight="75.2" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="118.20000762939452" minHeight="10.0" prefHeight="72.40000000000002" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="157.39999999999998" minHeight="10.0" prefHeight="75.6" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="158.80000000000004" minHeight="10.0" prefHeight="76.80000000000001" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="158.2" minHeight="10.0" prefHeight="72.80000000000001" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="172.79996948242183" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="122.39996948242185" minHeight="10.0" prefHeight="72.60000000000002" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="86.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                        </GridPane>
+                    </children>
+                </StackPane>
+                <HBox prefHeight="78.0" prefWidth="0.0">
+                    <children>
+                        <HBox prefHeight="59.0" prefWidth="603.0">
+                            <children>
+                                <ImageView fitHeight="60.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@image/ProfilBlanc.png" />
+                                    </image>
+                                </ImageView>
+                                <Label alignment="CENTER" prefHeight="66.0" prefWidth="122.0" text="JOUEUR" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <HBox prefHeight="62.0" prefWidth="319.0" />
+                                <Label alignment="CENTER" prefHeight="64.0" prefWidth="99.0" text="00:00" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="22.0" />
+                                    </font>
+                                </Label>
+                            </children></HBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <VBox prefHeight="677.0" prefWidth="404.0" styleClass="fonddroite" stylesheets="@styles.css">
+            <children>
+                <HBox prefHeight="714.0" prefWidth="402.0" stylesheets="@styles.css">
+                    <children>
+                        <VBox prefHeight="698.0" prefWidth="25.0" styleClass="fond" stylesheets="@styles.css" />
+                        <VBox prefHeight="678.0" prefWidth="24.0" />
+                        <HBox prefHeight="700.0" prefWidth="349.0">
+                            <children>
+                                <VBox prefHeight="728.0" prefWidth="326.0">
+                                    <children>
+                                        <HBox prefHeight="23.0" prefWidth="326.0" />
+                                        <HBox prefHeight="92.0" prefWidth="327.0">
+                                            <children>
+                                                <Button fx:id="ButtonN" prefHeight="32.0" prefWidth="116.0" styleClass="topbutton" text="Nouvelle Partie" textFill="WHITE" />
+                                                <Button fx:id="ButtonP" mnemonicParsing="false" prefHeight="32.0" prefWidth="105.0" styleClass="topbutton" text="Parties" textFill="#fcfcfc" />
+                                                <Button fx:id="ButtonJ" mnemonicParsing="false" prefHeight="32.0" prefWidth="127.0" styleClass="topbutton" text="Joueurs" textFill="WHITE" />
+                                            </children>
+                                        </HBox>
+                                        <HBox prefHeight="533.0" prefWidth="326.0">
+                                 <children>
+                                    <ListView fx:id="LiistMove" prefHeight="533.0" prefWidth="327.0" styleClass="fond" />
+                                 </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</HBox>

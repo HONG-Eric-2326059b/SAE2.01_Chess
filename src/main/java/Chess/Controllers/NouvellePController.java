@@ -42,6 +42,7 @@ public class NouvellePController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         PageController Pagecontroller = new PageController();
         Pagecontroller.topButton(ButtonN,ButtonJ,ButtonP);
+        Pagecontroller.JouerButton(ButtonJouer);
         // Piece Blancs
         Cavalier wn1 = new Cavalier(new Couleur("WHITE"),1,0, placePiece("b1", "wn.png"));
         Cavalier wn2 = new Cavalier(new Couleur("WHITE"),6,0, placePiece("g1", "wn.png"));
