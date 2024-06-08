@@ -2,6 +2,7 @@ package Chess.Piece;
 
 
 import Chess.Controllers.NouvellePController;
+import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -74,28 +75,44 @@ public class Cavalier {
         return image;
     }
 
-    public void deplaceCavalier(GridPane plateau) {
-        //Supprime les carrés bleu du GridPane
-        plateau.getChildren().remove(plateau.getChildren().size() - posPossibles.size(), plateau.getChildren().size());
+    public void deplaceCavalier(GridPane plateau){
+        //Supprime les carrés jaune du GridPane
+        plateau.getChildren().remove(plateau.getChildren().size()- posPossibles.size(), plateau.getChildren().size());
         posPossibles.clear();
         moveCondition();
-        for (String pos : move) {
+        for (String pos : move){
             Shape r = new Rectangle(75, 75, new Color(0.99, 1, 0, 0.45));
             // ajoute les rectangles dans le GridPane
-            plateau.add(r, Character.getNumericValue(pos.charAt(0)), 7 - Character.getNumericValue(pos.charAt(2)));
+            plateau.add(r, Character.getNumericValue(pos.charAt(0)), 7-Character.getNumericValue(pos.charAt(2)));
             // associe une position à chaque rectangle
-            posPossibles.put(r, Plateau.colonneToPos(Character.getNumericValue(pos.charAt(0))) + Character.getNumericValue(pos.charAt(2) + 1));
+            posPossibles.put(r,Plateau.colonneToPos(Character.getNumericValue(pos.charAt(0)))+Character.getNumericValue(pos.charAt(2)+1));
         }
-        for (Shape n : posPossibles.keySet()) {
+        for (Shape n : posPossibles.keySet()){
             // Si on appuie sur un rectangle
             n.setOnMouseClicked(actionEvent -> {
-                plateau.getChildren().remove(plateau.getChildren().size() - posPossibles.size(), plateau.getChildren().size());
-                System.out.println(posPossibles.get(n));
-                //Met à jour la position du cavalier
-                posY = Character.getNumericValue(posPossibles.get(n).charAt(1)) - 1;
-                posX = posPossibles.get(n).charAt(0) - 'a';
+                plateau.getChildren().remove(plateau.getChildren().size()- posPossibles.size(), plateau.getChildren().size());
+                String newPos = posPossibles.get(n);
+                System.out.println(newPos);
+                int newPosX = newPos.charAt(0) - 'a';
+                int newPosY = Character.getNumericValue(newPos.charAt(1)) - 1;
+
+                // Si la case de destination contient une pièce on la supprime
+                ImageView pieceToRemove = null;
+                for (Node piece : plateau.getChildren()) {
+                    int piecePosX = GridPane.getColumnIndex(piece);
+                    int piecePosY = 7 - GridPane.getRowIndex(piece);
+                    if (piecePosX == newPosX && piecePosY == newPosY) {
+                        pieceToRemove = (ImageView) piece;
+                        break;
+                    }
+                }
+                if (pieceToRemove != null) {
+                    plateau.getChildren().remove(pieceToRemove);
+                }
                 // Déplace la pièce dans le GridPane
-                NouvellePController.deplacePiece(posPossibles.get(n), this.image, plateau);
+                setPosX(newPosX);
+                setPosY(newPosY);
+                NouvellePController.deplacePiece(newPos, image, plateau);
                 posPossibles.clear();
             });
         }
