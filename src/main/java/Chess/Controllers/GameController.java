@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -36,6 +37,14 @@ public class GameController implements Initializable {
 
     @FXML
     private Label TimerBlanc;
+    @FXML
+    private Label JW1;
+    @FXML
+    private Label JB1;
+    @FXML
+    private TextField JW;
+    @FXML
+    private TextField JB;
 
     private Timer player1Timer;
     private Timer player2Timer;
@@ -47,7 +56,14 @@ public class GameController implements Initializable {
         Piece();
         Timer();
         playerMove();
+        JW.textProperty().addListener((observable, oldValue, newValue) -> {
+            JW1.setText(newValue);
+        });
+        JB.textProperty().addListener((observable, oldValue, newValue) -> {
+            JB1.setText(newValue);
+        });
     }
+    // Victoire en cas de minuterie == 0
     public void playerMove() {
         if (CoupJouer) {
             player1Timer.stop();
@@ -56,7 +72,7 @@ public class GameController implements Initializable {
                 System.out.println("Victoire des Blanc");
                 return;
             }
-            startPlayerTimer(player2Timer, TimerBlanc);
+            startPlayerTimer(player1Timer, TimerBlack);
         } else {
             player2Timer.stop();
             if (player2Timer.getSecondsRestante() == 0) {
@@ -64,18 +80,18 @@ public class GameController implements Initializable {
                 System.out.println("Victoire des Noirs");
                 return;
             }
-            startPlayerTimer(player1Timer, TimerBlack);
+            startPlayerTimer(player2Timer, TimerBlanc);
         }
         CoupJouer = !CoupJouer;
     }
-
+    //
     private boolean VictoireDesBlancs() {
         return true;
     }
     private boolean VictoireDesNoirs() {
         return false;
     }
-
+    //Timer des joueurs
     private void Timer(){
         player1Timer = new Timer(180);
         player2Timer = new Timer(180);
@@ -100,7 +116,7 @@ public class GameController implements Initializable {
             }
         }).start();
     }
-
+    //Commence le timer
     private void startPlayerTimer(Timer timer, Label timerLabel) {
         new Thread(() -> {
             while (timer.Lancement()) {
@@ -108,7 +124,7 @@ public class GameController implements Initializable {
             }
         }).start();
     }
-
+    // permet de mettre a jour le timer (du label)
     private void updateTimer(Label label, Timer timer) {
         int secondsLeft = timer.getSecondsRestante();
         int minutes = secondsLeft / 60;
@@ -125,6 +141,7 @@ public class GameController implements Initializable {
             e.printStackTrace();
         }
     }
+    // initialize les images pour les pieces
     private ImageView placePiece(String position, String imagePiece) {
         Image Piece = new Image(getClass().getResourceAsStream("/image/" + imagePiece));
         ImageView imageView = new ImageView(Piece);

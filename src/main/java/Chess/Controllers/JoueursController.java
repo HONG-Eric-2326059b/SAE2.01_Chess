@@ -90,6 +90,7 @@ public class JoueursController implements Initializable {
         } catch (NumberFormatException e) {
         }
     }
+    //affiche les piece
     private void affich(){
         Cavalier wn1 = new Cavalier(new Couleur("WHITE"),1,0, placePiece("b1", "wn.png"));
         Cavalier wn2 = new Cavalier(new Couleur("WHITE"),6,0, placePiece("g1", "wn.png"));
@@ -127,6 +128,7 @@ public class JoueursController implements Initializable {
         Pion bP7 = new Pion(new Couleur("BLACK"),6,6, placePiece("g7", "bp.png"));
         Pion bP8 = new Pion(new Couleur("BLACK"),7,6, placePiece("h7", "bp.png"));
     }
+    //initialize les image pour les pieces
     private ImageView placePiece(String position, String imagePiece) {
         Image Piece = new Image(getClass().getResourceAsStream("/image/" + imagePiece));
         ImageView imageView = new ImageView(Piece);

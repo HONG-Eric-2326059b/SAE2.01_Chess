@@ -81,6 +81,7 @@ public class NouvellePController implements Initializable {
         Pion bP8 = new Pion(new Couleur("BLACK"),7,6, placePiece("h7", "bp.png"));
 
     }
+    //permet d'initializer les images pour les pieces
     private ImageView placePiece(String position, String imagePiece) {
         Image Piece = new Image(getClass().getResourceAsStream("/image/" + imagePiece));
         ImageView imageView = new ImageView(Piece);
