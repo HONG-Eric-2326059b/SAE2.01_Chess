@@ -23,7 +23,7 @@ Pour exécuter ce projet, vous aurez besoin des éléments suivants :
 1. Clonez ou téléchargez le projet à partir du dépôt.
    ```bash
    git clone <URL_du_dépôt>
-2. Executer le Fichier ChessMain
+2. Executer le Fichier ChessMain via l'IDE
 
 
 ## Mode d'emploie
