@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox fx:id="hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1002.0" stylesheets="styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chess.Controllers.NouvellePController">
+<HBox fx:id="hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1002.0" stylesheets="styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Chess.Controllers.NouvellePController">
     <children>
         <VBox prefHeight="677.0" prefWidth="490.0" styleClass="fond" stylesheets="@styles.css">
             <children>
@@ -22,7 +23,7 @@
                      </font>
                   </Label>
                   <HBox prefHeight="60.0" prefWidth="334.0" />
-                  <Label alignment="CENTER" prefHeight="60.0" prefWidth="97.0" text="00:00" textFill="WHITE">
+                  <Label alignment="CENTER" prefHeight="60.0" prefWidth="97.0" text="10:00" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -73,8 +74,8 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <HBox prefHeight="62.0" prefWidth="319.0" />
-                        <Label alignment="CENTER" prefHeight="64.0" prefWidth="99.0" text="00:00" textFill="WHITE">
+                        <HBox prefHeight="51.0" prefWidth="318.0" />
+                        <Label alignment="CENTER" prefHeight="64.0" prefWidth="99.0" text="10:00" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="22.0" />
                            </font>
