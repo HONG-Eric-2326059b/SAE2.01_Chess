@@ -1,29 +1,49 @@
 package Chess;
 
-
-public class Player extends ChessMain{
+public class Player {
     private String Nom;
-    private int elo;
+    private String Prenom;
+    private int PartiesJouer;
+    private int PartiesGagner;
 
-    public Player(String Nom,int elo){
+    // Constructor
+    public Player(String Nom, String Prenom, int PartiesJouer, int PartiesGagner) {
         this.Nom = Nom;
-        this.elo = elo;
+        this.Prenom = Prenom;
+        this.PartiesJouer = PartiesJouer;
+        this.PartiesGagner = PartiesGagner;
     }
 
-    private void getNom(){
+    // Getters and setters
+    public String getNom() {
+        return Nom;
+    }
+
+    public void setNom(String Nom) {
         this.Nom = Nom;
     }
-    private void getelo(){
-        this.elo= elo;
-    }
-    private void setNom(String Nom){
-        this.Nom = Nom;
-    }
-    private void setElo(int elo){
-        this.elo = elo;
+
+    public String getPrenom() {
+        return Prenom;
     }
 
+    public void setPrenom(String Prenom) {
+        this.Prenom = Prenom;
+    }
 
+    public int getPartiesJouer() {
+        return PartiesJouer;
+    }
+
+    public void setPartiesJouer(int PartiesJouer) {
+        this.PartiesJouer = PartiesJouer;
+    }
+
+    public int getPartiesGagner() {
+        return PartiesGagner;
+    }
+
+    public void setPartiesGagner(int PartiesGagner) {
+        this.PartiesGagner = PartiesGagner;
+    }
 }
-
-

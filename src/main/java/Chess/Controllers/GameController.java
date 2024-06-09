@@ -40,7 +40,6 @@ public class GameController implements Initializable {
     private Timer player1Timer;
     private Timer player2Timer;
     private boolean CoupJouer = true;
-    private Map<Shape,String> posPossibles= new HashMap<>();
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         PageController Pagecontroller = new PageController();
@@ -78,8 +77,8 @@ public class GameController implements Initializable {
     }
 
     private void Timer(){
-        player1Timer = new Timer(1);
-        player2Timer = new Timer(1);
+        player1Timer = new Timer(180);
+        player2Timer = new Timer(180);
         player1Timer.start();
 
         new Thread(() -> {
